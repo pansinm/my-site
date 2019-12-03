@@ -12,6 +12,6 @@ module.exports = {
     { resolve: `gatsby-theme-blog` },
   ],
   siteMetadata: {
-    title: `Shadowed Site Title`,
+    title: `小橙时光机`,
   },
 }
