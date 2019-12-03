@@ -13,5 +13,8 @@ module.exports = {
   ],
   siteMetadata: {
     title: `小橙时光机`,
+    author: 'pansinm',
+    description: '千里之行始于足下',
+    social: []
   },
 }
