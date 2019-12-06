@@ -1,0 +1,39 @@
+---
+title: strapi插件之users-permissions
+date: 2019-12-06
+author: pansinm
+---
+
+#### users-permissions插件
+
+创建strapi项目后，可以在依赖中看到包含了，strapi-plugin-users-permissions插件。
+users-permissions是strapi必须的插件，卸载后，/admin 功能将不可用。
+
+users-permissions插件使用jwt进行用户认证。
+安装插件后，中间件将会检查strapi的每个请求。
+检查是否包含Authorization头，以及当前用户是否有权限访问资源。
+
+系统默认了两个角色 `Authenticated` 及 `Public`。
+Authenticated角色是登陆用户的默认角色，当用户未登录时，拥有Public角色。
+可以在 /admin 中为不同的角色分配资源访问权限。
+详细文档参考 [Users & Permissions](https://strapi.io/documentation/3.0.0-beta.x/plugins/users-permissions.html)
+
+#### 禁用users-permissions中间件
+
+当使用users-permissions中间件后，每个请求过来都将查询数据库。
+如果我们将strapi服务作为微服务，不希望浪费数据库IO，那么可以通过配置文件关闭中间件。
+只需要在生产环境配置中创建 `config/environments/production/middleware.json`，
+禁用该中间件，中间件文档参考 [Middlewares](https://strapi.io/documentation/3.0.0-beta.x/concepts/middlewares.html)
+
+```json
+{
+  "users-permissions": {
+    "enabled": false
+  }
+}
+
+```
+
+这样，我们就可以愉快地在本地用鼠标点一点，完成CURD接口开发。
+部署到线上后，既不用数据迁移(users-permissions相关配置)，也不用浪费数据库IO，
+其他服务也可以方便调用。
