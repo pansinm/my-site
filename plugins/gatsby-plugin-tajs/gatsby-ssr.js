@@ -8,7 +8,7 @@ export const onPreRenderHTML = ({ getHeadComponents, replaceHeadComponents }, op
     headComponents.push(
       <script
         type="text/javascript"
-        src={`http://tajs.qq.com/stats?sId=${options.sid}`}
+        src={`https://tajs.qq.com/stats?sId=${options.sid}`}
         charset="UTF-8"
       />
     )
