@@ -1,0 +1,12 @@
+{
+  "name": "gatsby-plugin-tajs",
+  "description": "gatsby plugin for tajs",
+  "license": "MIT",
+  "scripts": {
+  },
+  "dependencies": {
+  },
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "pansinm <pansinm@foxmail.com>"
+}
