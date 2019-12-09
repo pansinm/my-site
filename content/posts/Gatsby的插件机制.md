@@ -1,3 +1,8 @@
+---
+title: Gatsby的插件机制
+date: 2019-12-09
+author: pansinm
+---
 
 #### gatsby几个重要文件
 
