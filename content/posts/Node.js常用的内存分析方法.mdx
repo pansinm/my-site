@@ -1,0 +1,19 @@
+# Node.js常用的内存分析方法
+
+1. 使用heapdump库，导出堆快照，使用Chrome开发者工具分析
+  ```js
+  // npm install heapdump
+  const heapdump = require('heapdump')
+  heapdump.writeSnapshot('path/to/heapsnapshot')
+  ```
+2. process.memoryUsage() 能够打印当前内存使用情况
+  ```js
+  {
+    rss: 21602304,
+    heapTotal: 5955584,
+    heapUsed: 3796720,
+    external: 1387352
+  }
+  ```
+3. 通过 --trace-gc 及 --trace-gc-verbose 观察内存gc情况
+4. 通过 --expose-gc 暴露 global.gc()接口，支持手动gc，手动gc结合以上方法综合分析
